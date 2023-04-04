@@ -7,6 +7,8 @@ import { LoginComponent } from './Views/login/login.component';
 import { ListaClientesComponent } from './Views/lista-clientes/lista-clientes.component';
 import { ListaAdminComponent } from './Views/lista-admin/lista-admin.component';
 import { NavbarComponent } from './Views/navbar/navbar.component';
+import { NavbarcComponent } from './Views/navbarc/navbarc.component';
+import { RegistroComponent } from './Views/registro/registro.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +16,10 @@ import { NavbarComponent } from './Views/navbar/navbar.component';
     LoginComponent,
     ListaClientesComponent,
     ListaAdminComponent,
-    NavbarComponent
+    NavbarComponent,
+    NavbarcComponent,
+    RegistroComponent,
+
   ],
   imports: [
     BrowserModule,
