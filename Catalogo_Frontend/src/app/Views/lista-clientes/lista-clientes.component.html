@@ -70,7 +70,7 @@
 <table class="table justify-content-center text-center">
   <thead>
   <tr>
-    <th style="color:#ffffff">Nro</th>
+
     <th style="color:#ffffff">Nombre</th>
     <th style="color:#ffffff">Categoria</th>
 
@@ -81,17 +81,18 @@
 
 
 
-  <tr  class="tableRow">
-    <td>
-      <p style="color:#ffffff"> aqui va el id</p>
-    </td>
-    <td>
-      <p style="color:#ffffff">  aqui va el nombre</p>
+  <tr *ngFor="let producto of Productos ; index as i" class="tableRow">
+    <td style="color: #ffffff;">
+      {{producto.nombre}}
     </td>
 
-    <td>
-      <p style="color:#ffffff"> aqui va la categoria</p>
+    <td style="color: #ffffff;">
+      {{producto.categoria}}
     </td>
+    <td style="color: #ffffff;">
+      <img [attr.src]="producto.imagen" width="80" height=auto />
+    </td>
+
 
     <td>
       <!-- (click)="alertaedit(usuario)"

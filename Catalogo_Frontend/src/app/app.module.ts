@@ -10,6 +10,7 @@ import { NavbarComponent } from './Views/navbar/navbar.component';
 import { NavbarcComponent } from './Views/navbarc/navbarc.component';
 import { RegistroComponent } from './Views/registro/registro.component';
 
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,6 +23,7 @@ import { RegistroComponent } from './Views/registro/registro.component';
 
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     AppRoutingModule
   ],
