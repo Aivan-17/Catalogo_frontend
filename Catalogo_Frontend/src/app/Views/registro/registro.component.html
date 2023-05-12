@@ -18,7 +18,7 @@
         <div class="card-body p-lg-5" >
           <h3 class="mb-4">Registrate</h3>
           <p class="text-muted text-sm mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.</p>
-          <form>
+          <form [formGroup]="UserForm" (ngSubmit)="saveUser()">
 
             <div class="form-floating mb-3">
               <input formControlName="name" name="name" class="form-control" id="name" type="email" placeholder="name@example.com" required>
