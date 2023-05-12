@@ -49,15 +49,21 @@ export class LoginComponent implements OnInit {
         console.log( this.user.usuario);
         console.log( this.UserForm.value.nickname);
 
-        if((this.user.usuario == this.UserForm.value.nickname)&&(this.user.clave== this.UserForm.value.password)&&(this.user.status==1)){
 
-          if (this.user.prioridad=="1"){
-            this.router.navigateByUrl('/lista-cliente');}
-          if (this.user.prioridad=="2"){
-            this.router.navigateByUrl('/lista-admin');}
+        if ((this.user.usuario == this.UserForm.value.nickname) && (this.user.clave == this.UserForm.value.password) && (this.user.status == 1)) {
+          localStorage.setItem('idUsuario', JSON.stringify(this.user.idUsuario));
+          let dato;
+          dato = localStorage.getItem('idUsuario');
 
-        }
-        else{
+          console.log(dato);
+          if (this.user.prioridad == "1") {
+            this.router.navigateByUrl('/lista-cliente');
+          }
+          if (this.user.prioridad == "2") {
+            this.router.navigateByUrl('/lista-admin');
+          }
+
+        } else {
 
           alert("contraseña o usuario incorrectos");
         }
