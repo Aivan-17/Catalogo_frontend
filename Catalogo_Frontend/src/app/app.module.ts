@@ -11,7 +11,7 @@ import { NavbarcComponent } from './Views/navbarc/navbarc.component';
 import { RegistroComponent } from './Views/registro/registro.component';
 
 import { HttpClientModule } from '@angular/common/http';
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,12 +23,13 @@ import {ReactiveFormsModule} from "@angular/forms";
     RegistroComponent,
 
   ],
-  imports: [
-    HttpClientModule,
-    BrowserModule,
-    AppRoutingModule,
-    ReactiveFormsModule
-  ],
+    imports: [
+        HttpClientModule,
+        BrowserModule,
+        AppRoutingModule,
+        ReactiveFormsModule,
+        FormsModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

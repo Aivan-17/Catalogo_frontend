@@ -11,7 +11,7 @@ import { Config } from '../api';
   providedIn: 'root'
 })
 
-export class UsuarioService{
+export class ValoracionService{
 
   constructor(private http: HttpClient) { }
 

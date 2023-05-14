@@ -12,16 +12,7 @@ export class NavbarComponent {
 
   }
 
-  @HostListener('window:beforeunload')
-  onUnload() {
-    const data = new FormData();
 
-    data.append('name', 'abc');
-    data.append('location', 'world');
-    navigator.sendBeacon('http://www.mysitioweb.com/api/v1/endpoint', data);
-
-    return false;
-  }
   alertacierre(){
     Swal.fire({
 

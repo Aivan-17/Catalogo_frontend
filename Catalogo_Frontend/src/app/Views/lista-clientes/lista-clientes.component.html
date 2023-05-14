@@ -3,62 +3,79 @@
 
 <div class="col-md-5 mx-auto">
   <div class="small fw-light">rounded search input with icon</div>
-  <div class="input-group">
-    <input class="form-control border-end-0 border" type="search" value="Productos" id="example-search-input">
-    <span class="input-group-append">
-                    &nbsp; <button class="btn btn-outline-secondary bg-white border-start-0 border-bottom-0 border ms-n5" type="button">
-                        Buscar
-                    </button>
+
+
+
+  <form [formGroup]="UserForm" (ngSubmit)="getProductos()">
+
+
+    <div class="input-group">
+      <input class="form-control border-end-0 border" formControlName="busqueda" type="search" value="" id="example-search-input">
+      <span class="input-group-append">
+                    &nbsp;
+        <button class="btn btn-outline-secondary bg-white border-start-0 border-bottom-0 border ms-n5 "
+                style="float: right; background-color:#414b59"
+
+                type="submit" >buscar</button>
                 </span>
-    <br>
+      <br>
 
 
 
-  </div>
+    </div>
 
-  <br>
-  <div class="form-check-inline">
-    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-    <label class="form-check-label"style="color:#ffffff" for="flexRadioDefault2">
-      Mostrar todo
-    </label>
-  </div>
-  <div class="form-check-inline">
-    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-    <label class="form-check-label" style="color:#ffffff" for="flexRadioDefault1">
-      Computacion
-    </label>
-  </div>
-  <div class="form-check-inline">
-    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3">
-    <label class="form-check-label" style="color:#ffffff" for="flexRadioDefault1">
-      Celulares
-    </label>
-  </div>
-  <div class="form-check-inline">
-    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault4">
-    <label class="form-check-label" style="color:#ffffff" for="flexRadioDefault1">
-      Audio
-    </label>
-  </div>
-  <div class="form-check-inline">
-    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault5">
-    <label class="form-check-label" style="color:#ffffff" for="flexRadioDefault1">
-      Electrodomesticos
-    </label>
-  </div>
-  <div class="form-check-inline">
-    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault6">
-    <label class="form-check-label" style="color:#ffffff" for="flexRadioDefault1">
-      Accesorios
-    </label>
-  </div>
-  <div class="form-check-inline">
-    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault7">
-    <label class="form-check-label" style="color:#ffffff" for="flexRadioDefault1">
+    <div class="form-check-inline">
+      <input formControlName="userType"  value="Todo" class="form-check-input" type="radio" checked>
+      <label  class="form-check-label" style="color:#ffffff" >
+        Todo
+      </label>
+    </div>
+    <div class="form-check-inline">
+      <input formControlName="userType"  value="Computacion"  class="form-check-input" type="radio"  >
+      <label  class="form-check-label" style="color:#ffffff">
+        Computacion
+      </label>
+    </div>
+    <div class="form-check-inline">
+      <input formControlName="userType"  value="Telefonia"  class="form-check-input" type="radio" >
+      <label  class="form-check-label"style="color:#ffffff" >
+        Telefonia
+      </label>
+    </div>
+    <div class="form-check-inline">
+      <input formControlName="userType"  value="Audio"  class="form-check-input" type="radio" >
+      <label  class="form-check-label"style="color:#ffffff" >
+        Audio
+      </label>
+    </div>
+    <div class="form-check-inline">
+      <input formControlName="userType"  value="Accesorios"  class="form-check-input" type="radio" >
+      <label  class="form-check-label"style="color:#ffffff" >
+       Accesorios
+      </label>
+    </div>
+    <div class="form-check-inline">
+      <input formControlName="userType"  value="Electrodomesticos"  class="form-check-input" type="radio" >
+      <label  class="form-check-label" style="color:#ffffff" >
+        Electrodomesticos
+      </label>
+    </div>
+    <div class="form-check-inline">
+      <input formControlName="userType"  value="Mas"  class="form-check-input" type="radio" >
+      <label  class="form-check-label" style="color:#ffffff">
       Mas
-    </label>
-  </div>
+      </label>
+    </div>
+
+    <div class="form-group">
+      <br>
+
+
+    </div>
+
+  </form>
+
+
 
 
 
@@ -73,6 +90,7 @@
 
     <th style="color:#ffffff">Nombre</th>
     <th style="color:#ffffff">Categoria</th>
+    <th style="color:#ffffff">Marca</th>
 
 
   </tr>
@@ -90,14 +108,18 @@
       {{producto.categoria}}
     </td>
     <td style="color: #ffffff;">
+      {{producto.marca}}
+    </td>
+    <td style="color: #ffffff;">
       <img [attr.src]="producto.imagen" width="80" height=auto />
     </td>
+
 
 
     <td>
       <!-- (click)="alertaedit(usuario)"
        (click)="alertaelim(usuario.idEstadia)"-->
-      <button class="btn btn-success pull-right" id="edit"   data-bs-toggle="modal" data-bs-target="#modalVerProducto" style="background-color:#034d9f" ><a style="color: #F3EDE0" > Ver mas </a> </button>
+      <button class="btn btn-success pull-right" id="edit"  (click)="info(producto)"  data-bs-toggle="modal" data-bs-target="#modalVerProducto" style="background-color:#034d9f" ><a style="color: #F3EDE0" > Ver mas </a> </button>
 
     </td>
 
@@ -119,29 +141,53 @@
        <!--(ngSubmit)="editarUsuario()"-->
         <div class="modal-body">
           <div class="form-group formulario">
-            <label for="nombre">Nombre</label>
-            <th id="nombre">aqui va el nombre</th>
+            <th for="nombre">Nombre:</th>
+            <p id="nombre"   >{{prod.nombre}}</p>
 
           </div>
           <div class="form-group  formulario">
-            <label for="descripcion">Descripcion</label>
-            <th id="descripcion">aqui va la descripcion</th>
+            <th for="descripcion">Descripcion:</th>
+            <p id="descripcion">{{prod.descripcion}}</p>
           </div>
 
           <div class="form-group  formulario">
-            <label for="marca">Marca</label>
-            <th id="marca">aqui va la marca</th>
+            <th for="marca">Marca:</th>
+            <p id="marca">{{prod.marca}}</p>
           </div>
 
-          <div class="form-group  formulario">
-            <label for="imagen">Imagen</label>
-            <th id="imagen">aqui va la imagen</th>
-            <br><br><br><br><br><br><br><br>
+          <div class="form-group  formulario" >
+            <th for="imagen">Imagen:</th><br>
+            <img id="imagen" [attr.src]="prod.imagen" width="350" height=auto />
+
+            <br><br>
+
+            <form [formGroup]="CalForm" (ngSubmit)="setCal(prod)">
+
+              <button class="btn btn-success"
+                      data-bs-dismiss="modal"
+                      style="float:   left; background-color:#4157ff"
+
+                      type="submit" >Calificar</button>
+              <p class="clasificacion"  style="float:   left; background-color:#ffffff ">
+                <input id="radio1" type="radio" formControlName="estrellas" value="5" style=" display: none;"><!--
+
+
+    --><label for="radio1">★</label><!--
+    --><input id="radio2" type="radio" formControlName="estrellas" value="4" style=" display: none;"><!--
+    --><label for="radio2">★</label><!--
+    --><input id="radio3" type="radio" formControlName="estrellas" value="3" style=" display: none;"><!--
+    --><label for="radio3">★</label><!--
+    --><input id="radio4" type="radio"formControlName="estrellas" value="2" style=" display: none;"><!--
+    --><label for="radio4">★</label><!--
+    --><input id="radio5" type="radio" formControlName="estrellas" value="1" style=" display: none;"><!--
+    --><label for="radio5">★</label>
+              </p>
+            </form>
 
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Volver</button>
-\
+
         </div>
         </div>
 
