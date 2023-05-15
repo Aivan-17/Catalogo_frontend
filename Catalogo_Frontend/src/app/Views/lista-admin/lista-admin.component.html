@@ -20,45 +20,49 @@
 
 
 <br><br>
-<table class="table justify-content-center text-center">
-  <thead>
-  <tr>
-    <th style="color:#ffffff">Nro</th>
-    <th style="color:#ffffff">nombre</th>
-    <th style="color:#ffffff">Descripcion</th>
-    <th style="color:#ffffff">Categoria</th>
+  <table class="table justify-content-center text-center">
+    <thead>
+    <tr>
 
-  </tr>
-  </thead>
-  <tbody>
+      <th style="color:#ffffff">Nombre</th>
+      <th style="color:#ffffff">Categoria</th>
+      <th style="color:#ffffff">Marca</th>
 
 
+    </tr>
+    </thead>
+    <tbody>
 
-  <tr  class="tableRow">
-    <td>
-    <p style="color:#ffffff"> aqui va el id</p>
-    </td>
-    <td>
-      <p style="color:#ffffff">  aqui va el nomvre</p>
-    </td>
-    <td>
-      <p style="color:#ffffff">  aqui va la descripcion</p>
-    </td>
-    <td>
-      <p style="color:#ffffff"> aqui va la categoria</p>
-    </td>
 
-    <td>
-     <!-- (click)="alertaedit(usuario)"
-      (click)="alertaelim(usuario.idEstadia)"-->
-      <button class="btn btn-success pull-right" id="edit"   data-bs-toggle="modal" data-bs-target="#modalEditUsuario" style="background-color:#034d9f" ><a style="color: #F3EDE0" > Editar </a> </button>
-      <button class="btn btn-success pull-right" id="elim" (click)="alertaelim()"  style="background-color:#ff2828" ><a style="color: #F3EDE0" > Eliminar </a> </button>
-    </td>
 
-  </tr>
+    <tr *ngFor="let producto of Productos ; index as i" class="tableRow">
+      <td style="color: #ffffff;">
+        {{producto.nombre}}
+      </td>
 
-  </tbody>
-</table>
+      <td style="color: #ffffff;">
+        {{producto.categoria}}
+      </td>
+      <td style="color: #ffffff;">
+        {{producto.marca}}
+      </td>
+      <td style="color: #ffffff;">
+        <img [attr.src]="producto.imagen" width="80" height=auto />
+      </td>
+
+      <td>
+        <!-- (click)="alertaedit(usuario)"
+         (click)="alertaelim(usuario.idEstadia)"-->
+        <button class="btn btn-success pull-right" id="edit"   data-bs-toggle="modal" data-bs-target="#modalEditUsuario" style="background-color:#034d9f" ><a style="color: #F3EDE0" > Editar </a> </button>
+        <button class="btn btn-success pull-right" id="elim" (click)="alertaelim(producto.idProducto)"  style="background-color:#ff2828" ><a style="color: #F3EDE0" > Eliminar </a> </button>
+      </td>
+
+
+
+    </tr>
+
+    </tbody>
+  </table>
  <br> <br><br><br><br> <br> <br><br><br><br> <br> <br><br><br><br> <br> <br>
 
 <div class="modal fade" id="modalEditUsuario" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
