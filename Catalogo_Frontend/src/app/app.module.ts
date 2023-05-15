@@ -12,6 +12,7 @@ import { RegistroComponent } from './Views/registro/registro.component';
 
 import { HttpClientModule } from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { RegistroProductosComponent } from "./Views/registro-productos/registro-productos.component";
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,6 +22,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     NavbarComponent,
     NavbarcComponent,
     RegistroComponent,
+    RegistroProductosComponent,
 
   ],
     imports: [

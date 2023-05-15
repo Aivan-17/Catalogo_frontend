@@ -53,8 +53,8 @@ export class ProductoService{
     return this.http.delete<any>(Config.apiUrl + '/producto/'+id,);
 
   }
-  edit(user: UsuariosModel, id:number){
-    return this.http.put<any>(Config.apiUrl + '/producto' + id, user);
+  edit(user: ProductosModel){
+    return this.http.put<any>(Config.apiUrl + '/producto' , user);
 
   }
 

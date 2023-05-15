@@ -6,6 +6,7 @@ import {ListaClientesComponent} from "./Views/lista-clientes/lista-clientes.comp
 import {NavbarComponent} from "./Views/navbar/navbar.component";
 import {NavbarcComponent} from "./Views/navbarc/navbarc.component";
 import {RegistroComponent} from "./Views/registro/registro.component";
+import {RegistroProductosComponent} from "./Views/registro-productos/registro-productos.component";
 
 const routes: Routes = [
   {path: '', component: LoginComponent },
@@ -14,7 +15,7 @@ const routes: Routes = [
   {path: 'nav-bar', component: NavbarComponent},
   {path: 'nav-barc', component: NavbarcComponent},
   {path: 'registro', component: RegistroComponent},
-
+  {path: 'registro-producto', component: RegistroProductosComponent },
 ];
 
 @NgModule({

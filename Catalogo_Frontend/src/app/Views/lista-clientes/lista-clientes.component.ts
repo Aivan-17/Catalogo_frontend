@@ -43,7 +43,7 @@ export class ListaClientesComponent implements OnInit{
     this.getProductos();
   }
   getProductos(){
-    setInterval("location.reload()",60000);
+
     let cat=this.saveCategoria();
     let nom=this.saveNombre();
     console.log(cat);

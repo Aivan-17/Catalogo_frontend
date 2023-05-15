@@ -5,6 +5,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {ProductoService} from "../../Service/ProductoService";
 import {ValoracionService} from "../../Service/ValoracionService";
 import {UsuarioService} from "../../Service/UsuarioService";
+import {FormControl, FormGroup} from "@angular/forms";
 
 @Component({
   selector: 'app-lista-admin',
@@ -13,8 +14,9 @@ import {UsuarioService} from "../../Service/UsuarioService";
 })
 export class ListaAdminComponent implements OnInit {
   Productos: ProductosModel[]=[]
+  pm:ProductosModel= new ProductosModel();
 
-
+  UserForm: FormGroup = new FormGroup({})
 
   constructor(private router: Router,private route:ActivatedRoute, private productoService:ProductoService, private  valoracion:ValoracionService,
               private  usuarioService:UsuarioService) {
@@ -24,30 +26,60 @@ export class ListaAdminComponent implements OnInit {
 
     this.getProductos();
 
+    this.UserForm = new FormGroup({
+
+      busqueda: new FormControl('',[]),
+
+
+    });
+
   }
 
 
   getProductos(){
 
+    let nom=this.saveNombre();
 
+    if(nom==="" ){
+      this.productoService.getProds().subscribe(
+        data => {
+          this.Productos = data;
+          console.log(data);
 
-
-
-
-
-
-        this.productoService.getProds().subscribe(
-          data => {
-            this.Productos = data;
-            console.log(data);
-
-          }
-        )
+        }
+      )
 
     }
+    else {
+
+      this.productoService.getNombre(nom).subscribe(
+        data => {
+          this.Productos=data;
+          console.log(data);
+
+        }
+      )
+
+          }
+
+      }
 
 
 
+
+
+
+
+
+
+
+
+
+  public saveNombre (): String{
+    let bus= this.UserForm.value.busqueda;
+    console.log(bus);
+    return bus;
+  }
 
 
 
@@ -79,6 +111,22 @@ export class ListaAdminComponent implements OnInit {
 
 
   }
+
+
+
+
+
+  alertaedit(prod: ProductosModel){
+    this.pm=prod
+  }
+  saveEditedUser(){
+    this.productoService.edit(this.pm).subscribe(
+      data =>{
+        console.log(data)
+      }
+    )
+  }
+
 
 
 
