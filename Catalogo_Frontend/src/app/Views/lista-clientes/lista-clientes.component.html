@@ -13,10 +13,9 @@
       <input class="form-control border-end-0 border" formControlName="busqueda" type="search" value="" id="example-search-input">
       <span class="input-group-append">
                     &nbsp;
-        <button class="btn btn-outline-secondary bg-white border-start-0 border-bottom-0 border ms-n5 "
-                style="float: right; background-color:#414b59"
-
-                type="submit" >buscar</button>
+        <button class="btn btn-success bg-green border-start-0 border-bottom-0 border ms-n5 "
+                style="float: right; font-size: 20px; margin-left: 20px;"
+                type="submit" >Buscar</button>
                 </span>
       <br>
 
@@ -33,13 +32,13 @@
     <div class="form-check-inline">
       <input formControlName="userType"  value="Computacion"  class="form-check-input" type="radio"  >
       <label  class="form-check-label" style="color:#ffffff">
-        Computacion
+        Computación
       </label>
     </div>
     <div class="form-check-inline">
       <input formControlName="userType"  value="Telefonia"  class="form-check-input" type="radio" >
       <label  class="form-check-label"style="color:#ffffff" >
-        Telefonia
+        Telefonía
       </label>
     </div>
     <div class="form-check-inline">
@@ -57,13 +56,13 @@
     <div class="form-check-inline">
       <input formControlName="userType"  value="Electrodomesticos"  class="form-check-input" type="radio" >
       <label  class="form-check-label" style="color:#ffffff" >
-        Electrodomesticos
+        Electrodomésticos
       </label>
     </div>
     <div class="form-check-inline">
       <input formControlName="userType"  value="Mas"  class="form-check-input" type="radio" >
       <label  class="form-check-label" style="color:#ffffff">
-      Mas
+      Más
       </label>
     </div>
 
@@ -85,11 +84,11 @@
 
 <br><br>
 <table class="table justify-content-center text-center">
-  <thead>
+  <thead >
   <tr>
 
-    <th style="color:#ffffff">Nombre</th>
-    <th style="color:#ffffff">Categoria</th>
+    <th style="color:#ffffff;">Nombre</th>
+    <th style="color:#ffffff">Categoría</th>
     <th style="color:#ffffff">Marca</th>
 
 
@@ -119,7 +118,7 @@
     <td>
       <!-- (click)="alertaedit(usuario)"
        (click)="alertaelim(usuario.idEstadia)"-->
-      <button class="btn btn-success pull-right" id="edit"  (click)="info(producto)"  data-bs-toggle="modal" data-bs-target="#modalVerProducto" style="background-color:#034d9f" ><a style="color: #F3EDE0" > Ver mas </a> </button>
+      <button class="btn btn-success pull-right" id="edit"  (click)="info(producto)"  data-bs-toggle="modal" data-bs-target="#modalVerProducto" style="background-color:#034d9f" ><a style="color: #F3EDE0" > Ver más </a> </button>
 
     </td>
 
@@ -146,7 +145,7 @@
 
           </div>
           <div class="form-group  formulario">
-            <th for="descripcion">Descripcion:</th>
+            <th for="descripcion">Descripción:</th>
             <p id="descripcion">{{prod.descripcion}}</p>
           </div>
 

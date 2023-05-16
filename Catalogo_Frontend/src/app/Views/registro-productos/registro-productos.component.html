@@ -14,7 +14,7 @@
         </div>
         <div class="card-body p-lg-5" >
           <h3 class="mb-4">Registra tu producto</h3>
-          <p class="text-muted text-sm mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.</p>
+          <!-- <p class="text-muted text-sm mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.</p> -->
           <form [formGroup]="UserForm" (ngSubmit)="save()" enctype="multipart/form-data">
 
             <div class="form-floating mb-3">
@@ -25,12 +25,12 @@
 
             <div class="form-floating mb-3">
               <input formControlName="des" name="nickname" class="form-control" id="username" required>
-              <label for="username">descripcion</label>
+              <label for="username">Descripción</label>
             </div>
 
             <div class="form-floating mb-3">
               <input formControlName="marca" class="form-control" id="floatingPassword" required>
-              <label for="floatingPassword">marca</label>
+              <label for="floatingPassword">Marca</label>
             </div>
 
             <!-- <div class="form-floating mb-3">
