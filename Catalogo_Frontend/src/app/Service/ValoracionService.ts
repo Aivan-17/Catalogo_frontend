@@ -18,7 +18,7 @@ export class ValoracionService{
 
   save(val: ValoracionModel){
     return this.http.post<any>(Config.apiUrl + '/valoracion', val);
-
+    console.log(val.idValoracion)
   }
 
   getVal(){  //obtienetodo

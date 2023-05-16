@@ -100,7 +100,7 @@ export class ListaClientesComponent implements OnInit{
 
   public setCal(pm:ProductosModel) {
 
-
+this.val.idValoracion=0
 
     let cal = this.CalForm.value.estrellas;
     let dato;

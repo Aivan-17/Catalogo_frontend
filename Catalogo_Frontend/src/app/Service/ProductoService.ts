@@ -54,12 +54,15 @@ export class ProductoService{
 
 
   delete(id: number){
-    return this.http.delete<any>(Config.apiUrl + '/producto/'+id,);
+    return this.http.delete<any>(Config.apiUrl + '/producto/'+id);
 
   }
   edit(user: ProductosModel, id: number){
     return this.http.put<any>(Config.apiUrl + '/producto/'+id , user);
 
+  }
+  saveVista(user: ProductosModel, id: number){
+    return this.http.put<any>(Config.apiUrl + '/producto/vista/'+id, user );
   }
 
 }
