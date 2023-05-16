@@ -38,10 +38,14 @@ export class ListaAdminComponent implements OnInit {
 
   getProductos(){
 
-    let nom=this.saveNombre();
+    let nom= this.UserForm.value.busqueda;
 
     if(nom==="" ){
-      this.productoService.getProds().subscribe(
+      let dato;
+      dato = localStorage.getItem('idUsuario');
+      let cc= Number(dato);
+
+      this.productoService.getProdsUs(cc).subscribe(
         data => {
           this.Productos = data;
           console.log(data);
@@ -119,8 +123,8 @@ export class ListaAdminComponent implements OnInit {
   alertaedit(prod: ProductosModel){
     this.pm=prod
   }
-  saveEditedUser(){
-    this.productoService.edit(this.pm).subscribe(
+  saveEditedUser(id: number){
+    this.productoService.edit(this.pm, this.pm.idProducto ).subscribe(
       data =>{
         console.log(data)
       }

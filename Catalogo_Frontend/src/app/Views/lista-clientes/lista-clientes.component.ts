@@ -90,6 +90,7 @@ export class ListaClientesComponent implements OnInit{
   }
   public saveNombre (): String{
   let bus= this.UserForm.value.busqueda;
+    this.UserForm.value.userType="";
   console.log(bus);
   return bus;
   }

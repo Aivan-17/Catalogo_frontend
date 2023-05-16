@@ -26,6 +26,10 @@ export class ProductoService{
     return this.http.get<ProductosModel[]>(Config.apiUrl + '/producto');
 
   }
+  getProdsUs(id: number){  //obtiene todos los productos por usuario
+    return this.http.get<ProductosModel[]>(Config.apiUrl + '/producto/usuario/'+id);
+
+  }
 
   getProd(id: number){ //obtiene por id
     return this.http.get<any>(Config.apiUrl + '/producto/'+id);
@@ -53,8 +57,8 @@ export class ProductoService{
     return this.http.delete<any>(Config.apiUrl + '/producto/'+id,);
 
   }
-  edit(user: ProductosModel){
-    return this.http.put<any>(Config.apiUrl + '/producto' , user);
+  edit(user: ProductosModel, id: number){
+    return this.http.put<any>(Config.apiUrl + '/producto/'+id , user);
 
   }
 

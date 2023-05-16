@@ -13,6 +13,9 @@ import { RegistroComponent } from './Views/registro/registro.component';
 import { HttpClientModule } from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { RegistroProductosComponent } from "./Views/registro-productos/registro-productos.component";
+import { DashBoardComponent } from './Views/dash-board/dash-board.component';
+import { NavbardComponent } from './Views/navbard/navbard.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,6 +26,8 @@ import { RegistroProductosComponent } from "./Views/registro-productos/registro-
     NavbarcComponent,
     RegistroComponent,
     RegistroProductosComponent,
+    DashBoardComponent,
+    NavbardComponent,
 
   ],
     imports: [

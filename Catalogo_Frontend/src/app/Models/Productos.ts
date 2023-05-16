@@ -9,6 +9,7 @@ export class ProductosModel{
   status:number = 0;
   nombre:string = "";
   imagen:string = "";
+  vistas:number = 0;
   idUsuario: UsuariosModel = new UsuariosModel();
 
 }
