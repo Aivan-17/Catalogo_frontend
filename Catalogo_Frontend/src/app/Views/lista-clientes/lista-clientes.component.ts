@@ -49,12 +49,18 @@ export class ListaClientesComponent implements OnInit{
     console.log(cat);
     console.log(nom);
 
+
+
+
     if(nom!="" ){
 
       this.productoService.getNombre(nom).subscribe(
         data => {
           this.Productos=data;
           console.log(data);
+          if(data==null || data==''){
+            alert("producto inexistente");
+          }
 
         }
       )
@@ -66,8 +72,11 @@ export class ListaClientesComponent implements OnInit{
             this.Productos = data;
             console.log(data);
 
+
           }
         )
+
+
       } else {
         this.productoService.getCat(cat).subscribe(
           data => {

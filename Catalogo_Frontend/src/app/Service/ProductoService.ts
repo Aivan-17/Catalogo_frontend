@@ -12,6 +12,12 @@ export class ProductoService{
   constructor(private http: HttpClient) { }
 
 
+
+  saveProducSI(Prod: ProductosModel){ // guarda imagen y lo demas
+    return this.http.post<any>(Config.apiUrl + '/producto/guardar', Prod);
+
+  }
+
   saveProduc(Prod: ProductosModel, img: String){ // guarda imagen y lo demas
     return this.http.post<any>(Config.apiUrl + '/producto/query?image='+ img, Prod);
 

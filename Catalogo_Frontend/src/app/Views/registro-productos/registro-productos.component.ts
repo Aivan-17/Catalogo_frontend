@@ -13,7 +13,7 @@ import {HttpClient} from "@angular/common/http";
   styleUrls: ['./registro-productos.component.css']
 })
 export class RegistroProductosComponent implements OnInit{
-
+  user:ProductosModel= new ProductosModel();
   us: UsuariosModel=new  UsuariosModel();
   UserForm: FormGroup = new FormGroup({})
 
@@ -34,24 +34,29 @@ file:new FormControl
   }
 
   save(){
-    let user:ProductosModel= new ProductosModel();
+
 
 
     let dato;
     dato = localStorage.getItem('idUsuario');
     let cc= Number(dato);
     console.log(this.UserForm.value)
-    user.nombre = this.UserForm.value.name;
+   this.user.nombre = this.UserForm.value.name;
 
-    user.marca= this.UserForm.value.marca;
-    user.descripcion= this.UserForm.value.des;
+    this.user.marca= this.UserForm.value.marca;
+    this.user.descripcion= this.UserForm.value.des;
     this.us.idUsuario= cc;
-    user.idUsuario = this.us;
-    console.log(user)
-    this.http.post('http://localhost:4200/api/trip', this.UserForm).subscribe(
-      (response) =>console.log(response),
-      (error) =>console.log(error)
+    this.user.idUsuario = this.us;
+    console.log(this.user)
+    this.productpService.saveProducSI(this.user).subscribe(
+      data => {
+        this.user = data;
+        console.log(data);
+
+      }
+
     )
+    window.location.href = "/lista-admin";
   }
 
 
