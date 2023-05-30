@@ -26,7 +26,10 @@ export class RegistroProductosComponent implements OnInit{
       name: new FormControl('', [Validators.required, Validators.minLength(3),Validators.maxLength(20),Validators.pattern('^[a-zA-Z ]*$')]),
       des: new FormControl('',[Validators.required, Validators.minLength(3),Validators.maxLength(20),Validators.pattern('^[a-zA-Z ]*$')]),
       marca: new FormControl('',[Validators.required, Validators.minLength(3),Validators.maxLength(20),Validators.pattern('^[a-zA-Z ]*$')]),
-file:new FormControl
+      categoria: new FormControl('',[Validators.required, Validators.minLength(3),Validators.maxLength(20),Validators.pattern('^[a-zA-Z ]*$')]),
+
+
+      file:new FormControl
 
     },{  });
 
@@ -42,7 +45,7 @@ file:new FormControl
     let cc= Number(dato);
     console.log(this.UserForm.value)
    this.user.nombre = this.UserForm.value.name;
-
+this.user.categoria=this.UserForm.value.categoria;
     this.user.marca= this.UserForm.value.marca;
     this.user.descripcion= this.UserForm.value.des;
     this.us.idUsuario= cc;
