@@ -60,7 +60,7 @@ export class ListaAdminComponent implements OnInit {
         data => {
           this.Productos=data;
           console.log(data);
-          if(data==null || data==''){
+          if(data==null ){
             alert("producto inexistente");
           }
         }

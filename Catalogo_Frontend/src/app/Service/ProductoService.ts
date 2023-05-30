@@ -70,5 +70,14 @@ export class ProductoService{
   saveVista(user: ProductosModel, id: number){
     return this.http.put<any>(Config.apiUrl + '/producto/vista/'+id, user );
   }
+  getMArcaDash(marca:String){ //obtiene por marca
+    return this.http.get<any>(Config.apiUrl + '/producto/usuario/dash?marca='+marca);
+
+  }
+
+  getProductoDash(marca:String){ //obtiene por marca
+    return this.http.get<any>(Config.apiUrl + '/producto/usuario/dash2?categoria='+marca);
+
+  }
 
 }
